@@ -3,10 +3,9 @@ import java.util.*;
 public void setup() {
 	String lines[] = loadStrings("words.txt");
 	System.out.println("there are " + lines.length + " lines");
-	for (int i = 0 ; i < lines.length; i++) {
+	for(int i = 0 ; i < lines.length; i++) {
 	  System.out.println(pigLatin(lines[i]));
 	}
-	String lowellHymn........................................................
 }
 public void draw()
 {
@@ -24,12 +23,16 @@ public String pigLatin(String sWord)
 //precondition: sWord is a valid String of length greater than 0
 //postcondition: returns the pig latin equivalent of sWord
 {
+	//If the word consists of only consonants
 	if(findFirstVowel(sWord) == -1)
 		return sWord + "ay";
+	//If the word begins with a vowel
 	else if(findFirstVowel(sWord) == 0)
 		return sWord + "way";
+	//If the word begins with "qu"
 	else if(sWord.substring(0, 2).equals("qu"))
 		return sWord.substring(2) + "quay";
+	//If the word begins with 1 or more consonants
 	else if(findFirstVowel(sWord) > 0)
 		return sWord.substring(findFirstVowel(sWord)) + sWord.substring(0, findFirstVowel(sWord)) + "ay";
 	else
